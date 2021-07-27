@@ -191,6 +191,6 @@ The CPU utilization is at 100% on every core available and the memory usage is s
 [![Pastebin service demo](https://i.imgur.com/Fv19H71.png)](https://www.youtube.com/watch?v=BG7f61H7C4I "Pastebin service demo")
 
 ## Docker example
-'''shell
+```shell
 docker run --name paste -v $PWD:/data01 -p 8000:8000 pastebin --address 0.0.0.0 --port 8000 --ui-expiry-times "5 minutes, 1 hour, 1 day, 1 week, 1 month" --ttl 300 --db /data01/pastebin.db
-'''
+```
