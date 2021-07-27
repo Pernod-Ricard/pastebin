@@ -1,0 +1,7 @@
+version: "3.8"
+services:
+    pastebin:
+        image: pernodricard/pastebin
+        ports:
+            - 8000:8000
+        command: --address 0.0.0.0 --port 8000 --ttl 300 --db /data01/pastebin.db --uri https://yoursecret.com
