@@ -3,7 +3,6 @@
 
 #[macro_use]
 extern crate rocket;
-#[macro_use]
 extern crate structopt_derive;
 extern crate chrono;
 extern crate flatbuffers;
@@ -364,7 +363,7 @@ fn create(
         &mut paste.open(),
         lang.unwrap_or_else(|| String::from("markup")),
         ttl.unwrap_or(cfg.ttl),
-        burn.unwrap_or(false),
+        burn.unwrap_or(true),
         encrypted.unwrap_or(false),
     );
 

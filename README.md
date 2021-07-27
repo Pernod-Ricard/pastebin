@@ -96,9 +96,9 @@ map $sent_http_content_type $expires {
 }
 
 server {
-    listen       80; 
+    listen       80;
     server_name  paste.domain.com;
-    
+
     gzip on;
     gzip_types text/plain application/xml text/css application/javascript;
 
@@ -168,13 +168,13 @@ data_received..............: 654 MB 11 MB/s
 data_sent..................: 5.9 MB 98 kB/s
 http_req_blocked...........: avg=175.61µs min=56.88µs med=133.4µs max=168.74ms p(90)=175.38µs p(95)=219.87µs
 http_req_connecting........: avg=86.58µs  min=0s      med=67.93µs max=34.36ms  p(90)=95.52µs  p(95)=116.89µs
-http_req_duration..........: avg=13.29ms  min=2.64ms  med=8.3ms   max=129.12ms p(90)=30.32ms  p(95)=38.67ms 
+http_req_duration..........: avg=13.29ms  min=2.64ms  med=8.3ms   max=129.12ms p(90)=30.32ms  p(95)=38.67ms
 http_req_receiving.........: avg=223.36µs min=18.63µs med=71.91µs max=39.84ms  p(90)=143.88µs p(95)=217.81µs
 http_req_sending...........: avg=461.61µs min=17.23µs med=46.8µs  max=62.26ms  p(90)=335.01µs p(95)=857.64µs
 http_req_tls_handshaking...: avg=0s       min=0s      med=0s      max=0s       p(90)=0s       p(95)=0s      
-http_req_waiting...........: avg=12.6ms   min=2.59ms  med=8ms     max=106.26ms p(90)=28.61ms  p(95)=36.55ms 
+http_req_waiting...........: avg=12.6ms   min=2.59ms  med=8ms     max=106.26ms p(90)=28.61ms  p(95)=36.55ms
 http_reqs..................: 47699  794.982442/s
-iteration_duration.........: avg=13.48ms  min=2.75ms  med=8.47ms  max=185.95ms p(90)=30.55ms  p(95)=38.91ms 
+iteration_duration.........: avg=13.48ms  min=2.75ms  med=8.47ms  max=185.95ms p(90)=30.55ms  p(95)=38.91ms
 iterations.................: 47699  794.982442/s
 vus........................: 31     min=2  max=31
 vus_max....................: 32     min=32 max=32
@@ -189,3 +189,8 @@ The CPU utilization is at 100% on every core available and the memory usage is s
 
 ## Demo
 [![Pastebin service demo](https://i.imgur.com/Fv19H71.png)](https://www.youtube.com/watch?v=BG7f61H7C4I "Pastebin service demo")
+
+## Docker example
+'''shell
+docker run --name paste -v $PWD:/data01 -p 8000:8000 pastebin --address 0.0.0.0 --port 8000 --ui-expiry-times "5 minutes, 1 hour, 1 day, 1 week, 1 month" --ttl 300 --db /data01/pastebin.db
+'''

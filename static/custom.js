@@ -159,4 +159,13 @@ $(document).ready(function() {
             $("#modal-alert").alert('close');
         }
     });
+
+    // Handle the Enter key to decrypt using the password
+    $('#modal-password').keypress(function (e) {
+      if(e.which == 13)  // the enter key code
+      {
+        $('#decrypt-btn').click();
+        return false;
+      }
+    });
 });
