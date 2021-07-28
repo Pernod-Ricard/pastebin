@@ -4,4 +4,4 @@ services:
         image: pernodricard/pastebin
         ports:
             - 8000:8000
-        command: --address 0.0.0.0 --port 8000 --ttl 300 --db /data01/pastebin.db --uri https://yoursecret.com
+        command: --address=0.0.0.0 --port=8000 --ttl=300 --ui-expiry-times='5 minutes,1 hour,1 day,1 week' --uri=https://yousecret.com
